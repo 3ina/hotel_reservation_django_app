@@ -5,5 +5,8 @@ def index(request):
     return render(request,'backend/index.html',{})
 
 
-def about(requst):
-    return render(requst,'backend/about.html',{})
+def about(request):
+    return render(request, 'backend/about.html', {})
+
+def term_conditions(request):
+    return render(request,'backend/term-conditions.html',{})
