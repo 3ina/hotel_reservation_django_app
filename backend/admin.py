@@ -1,3 +1,10 @@
 from django.contrib import admin
+from backend import models
 
-# Register your models here.
+admin.site.register(models.Post)
+admin.site.register(models.Tag)
+admin.site.register(models.TagPost)
+admin.site.register(models.RestaurantItem)
+
+
+

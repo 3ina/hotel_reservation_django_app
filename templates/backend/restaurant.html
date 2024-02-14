@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+        <!-- Breakfast Area -->
+        <div class="breakfast-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Breakfast</h2>
+                    <span> 8:00 AM - 12:00 PM</span>
+                </div>
+                <div class="row pt-45">
+
+                    {% for br in breakfast %}
+                        <div class="col-lg-6">
+                        <div class="restaurant-item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-img">
+                                        <img src="{{ br.image.url }}" alt="Images">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-content">
+                                        <h3><a href="#">{{ br.title }}</a></h3>
+                                        <p>
+                                            {{ br.desc }}
+                                        </p>
+                                        <h4>${{ br.price }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Breakfast Area End -->
+
+        <!-- Lunch Area -->
+        <div class="lunch-area pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Lunch</h2>
+                    <span> 12:30 PM - 3:00 PM</span>
+                </div>
+                {% for l in lunch %}
+
+                <div class="row pt-45">
+                    <div class="col-lg-6">
+                        <div class="restaurant-item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-img">
+                                        <img src="{{ l.image.url }}" alt="Images">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-content">
+                                        <h3><a href="#">{{ l.title }}</a></h3>
+                                        <p>
+                                            {{ l.desc }}
+                                        </p>
+                                        <h4>${{ l.price }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Lunch Area End -->
+
+        <!-- Dinner Area -->
+        <div class="dinner-area pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Dinner</h2>
+                    <span> 8:00 PM - 11:00 PM</span>
+                </div>
+                {% for d in dinner %}
+                    <div class="row pt-45">
+                    <div class="col-lg-6">
+                        <div class="restaurant-item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-img">
+                                        <img src="{{ d.image.url }}" alt="Images">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-content">
+                                        <h3><a href="#">{{ d.title }}</a></h3>
+                                        <p>
+                                            {{ d.desc }}
+                                        </p>
+                                        <h4>${{ d.price }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Dinner Area End -->
+
+        <!-- Drink Area -->
+        <div class="drink-area pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Drink</h2>
+                    <span> All Time</span>
+                </div>
+
+                {% for dr in drink %}
+                         <div class="row pt-45">
+                    <div class="col-lg-6">
+                        <div class="restaurant-item">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-img">
+                                        <img src="{{ dr.image.url }}" alt="Images">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 p-0">
+                                    <div class="restaurant-content">
+                                        <h3><a href="#">{{ dr.title }}</a></h3>
+                                        <p>
+                                            {{ dr.desc }}
+                                        </p>
+                                        <h4>${{ dr.price }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Drink Area End -->
+
+
+
+{% endblock %}

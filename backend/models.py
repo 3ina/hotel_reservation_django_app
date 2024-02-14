@@ -30,3 +30,4 @@ class RestaurantItem(models.Model):
     desc = models.TextField()
     category = models.CharField(max_length=20,choices=categories)
     image = models.ImageField(upload_to='./images/food/')
+    price = models.PositiveSmallIntegerField()
