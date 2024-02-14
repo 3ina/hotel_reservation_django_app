@@ -10,3 +10,6 @@ def about(request):
 
 def term_conditions(request):
     return render(request,'backend/term-conditions.html',{})
+
+def privacy_policy(request):
+    return render(request,'backend/privacy-policy.html',{})
