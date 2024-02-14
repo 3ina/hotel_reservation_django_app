@@ -46,7 +46,7 @@
         <div class="navbar-area">
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="index.html" class="logo">
+                <a href="{% url 'backend:index' %}" class="logo">
                     <img src="{% static 'img/logos/logo-2.png' %}" class="logo-one" alt="Logo">
                     <img src="{% static 'img/logos/footer-logo2.png' %}" class="logo-two" alt="Logo">
                 </a>
@@ -56,7 +56,7 @@
             <div class="main-nav nav-two">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light ">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{% url 'backend:index' %}">
                             <img src="{% static 'img/logos/logo-2.png' %}" class="logo-one" alt="Logo">
                             <img src="{% static 'img/logos/footer-logo2.png' %}" class="logo-two" alt="Logo">
                         </a>
@@ -66,28 +66,10 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link active">
                                         Home
-                                        <i class='bx bx-chevron-down'></i>
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="index.html" class="nav-link">
-                                                Home One
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-2.html" class="nav-link active">
-                                                Home Two
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-3.html" class="nav-link">
-                                                Home Three
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="about.html" class="nav-link">
+                                    <a href="{% url 'backend:about' %}" class="nav-link">
                                         About
                                     </a>
                                 </li>
