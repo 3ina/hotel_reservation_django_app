@@ -55,3 +55,9 @@ def conference_gallery(request):
     return render(request,'backend/gallery.html',context)
 
 
+def resort_reserve(request):
+    objects = models.GalleryImage.objects.filter(category="Resort Reserve")
+    context = {
+        "objects": objects,
+    }
+    return render(request, 'backend/gallery.html', context)
