@@ -47,3 +47,11 @@ def hotel_room_gallery(request):
     return render(request,'backend/gallery.html',context)
 
 
+def conference_gallery(request):
+    objects = models.GalleryImage.objects.filter(category="Conference")
+    context = {
+        "objects":objects,
+    }
+    return render(request,'backend/gallery.html',context)
+
+
