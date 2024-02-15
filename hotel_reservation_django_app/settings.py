@@ -35,8 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "allauth_ui",
     'allauth',
     'allauth.account',
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "widget_tweaks",
     'backend',
 ]
 
@@ -136,3 +140,5 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+LOGIN_REDIRECT_URL = '/'
