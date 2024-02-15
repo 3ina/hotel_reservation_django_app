@@ -109,7 +109,7 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a href="gallery.html" class="nav-link">
+                                            <a href="{% url 'backend:gallery hotel room' %}" class="nav-link">
                                                 Gallery
                                             </a>
                                         </li>
@@ -160,11 +160,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
-                                        Contact
-                                    </a>
-                                </li>
+
                                 {% if user.is_authenticated %}
                                      <li class="nav-item" ><a href="{% url 'account_logout' %}">Log Out</a></li>
                              {% else %}

@@ -9,7 +9,8 @@ urlpatterns = [
     path('term-conditions/', views.term_conditions, name='term-conditions'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('restaurant/', views.restaurant, name='restaurant'),
-    path('team/', views.TeamMemberView.as_view(), name="team")
+    path('team/', views.TeamMemberView.as_view(), name="team"),
+    path("gallary/",views.hotel_room_gallery,name="gallery hotel room")
 ]
 
 

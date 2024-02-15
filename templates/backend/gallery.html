@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block content %}
+     <div class="gallery-area pt-100 pb-70">
+            <div class="container">
+                <div class="tab gallery-tab">
+                    <ul class="tabs text-center">
+                        <li>
+                            <a href="#">Hotel Room</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Conference</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Resort Reserve</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Weeding Hall</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Community Center</a>
+                        </li>
+                    </ul>
+
+
+                       <div class="tab_content current active pt-45">
+                        <div class="tabs_item current">
+                            <div class="gallery-tab-item">
+                                <div class="gallery-view">
+                                    <div class="row">
+                                        {% for object in objects %}
+                                                 <div class="col-lg-4 col-sm-6">
+                                            <div class="single-gallery">
+                                                <img src="{{ object.image.url }}" alt="Images">
+                                                <a href="{{ object.image.url }}" class="gallery-icon">
+                                                    <i class='bx bx-plus'></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
