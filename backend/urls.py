@@ -9,6 +9,7 @@ urlpatterns = [
     path('term-conditions/', views.term_conditions, name='term-conditions'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('restaurant/', views.restaurant, name='restaurant'),
+    path('team/', views.TeamMemberView.as_view(), name="team")
 ]
 
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from backend import models
+from django.views.generic import ListView
 def index(request):
 
     return render(request,'backend/index.html',{})
@@ -30,3 +31,9 @@ def restaurant(requests):
 
     }
     return render(requests,'backend/restaurant.html',context)
+
+
+class TeamMemberView(ListView):
+    model = models.TeamMember
+    paginate_by = 3
+    template_name = 'backend/team.html'
