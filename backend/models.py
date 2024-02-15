@@ -38,3 +38,10 @@ class TeamMember(models.Model):
     name = models.CharField(max_length=30)
     image = models.ImageField(upload_to='./image/team/')
     position = models.CharField(max_length=30)
+    instagram = models.CharField(max_length=60,null=True,default=None)
+    twitter = models.CharField(max_length=60,null=True,default=None)
+    facebook = models.CharField(max_length=60,null=True,default=None)
+    pinterest = models.CharField(max_length=60,null=True,default=None)
+
+
+
