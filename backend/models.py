@@ -45,3 +45,12 @@ class TeamMember(models.Model):
 
 
 
+class GalleryImage(models.Model):
+    categories = (
+        ("Hotel Room", "Hotel Room"),
+        ("Conference", "Conference"),
+        ("Resort Reserve", "Resort Reserve"),
+        ("Weeding Hall", "Weeding Hall"),
+    )
+    image = models.ImageField(upload_to='./image/gallery/')
+    category = models.CharField(max_length=20,choices=categories)
