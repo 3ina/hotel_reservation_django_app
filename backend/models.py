@@ -9,6 +9,7 @@ class Post(models.Model):
     image1 = models.ImageField(upload_to="./images/post/")
     image2 = models.ImageField(upload_to="./images/post/")
     upload_date = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()
 
 
 class Tag(models.Model):

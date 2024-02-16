@@ -14,32 +14,35 @@
                 </div>
                 <div class="row pt-45">
 
-
-                    <div class="col-lg-4 col-md-6">
+                    {% for teammember in teammember_list %}
+                          <div class="col-lg-4 col-md-6">
                         <div class="team-item">
-                            <a href="team.html">
-                                <img src="{% static 'img/team/team-img1.jpg' %}" alt="Images">
-                            </a>
+                                <img src="{{ teammember.image.url }}" alt="Images">
+
                             <div class="content">
-                                <h3><a href="team.html">Tom Shumate</a></h3>
-                                <span>Manager</span>
+                                <h3>{{ teammember.name }}</h3>
+                                <span>{{ teammember.position }}</span>
                                 <ul class="social-link">
                                     <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                        <a href="{{ teammember.facebook }}" target="_blank"><i class='bx bxl-facebook'></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                        <a href="{{ teammember.twitter }}" target="_blank"><i class='bx bxl-twitter'></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                        <a href="{{ teammember.instagram }}" target="_blank"><i class='bx bxl-instagram'></i></a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank"><i class='bx bxl-pinterest-alt'></i></a>
+                                        <a href="{{ teammember.pinterest }}" target="_blank"><i class='bx bxl-pinterest-alt'></i></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
+
+
+                    {% endfor %}
 
 
 

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+      <!-- Blog Area -->
+        <div class="blog-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="sp-color">BLOGS</span>
+                    <h2>Our Latest Blogs to the Intranational Journal at a Glance</h2>
+                </div>
+                <div class="row pt-45">
+
+                    {% for post in post_list %}
+
+                        <div class="col-lg-4 col-md-6">
+                        <div class="blog-item">
+                            <a href="blog-details.html">
+                                <img src="{{ post.image1.url }}" alt="Images">
+                            </a>
+                            <div class="content">
+                                <ul>
+                                    <li>{{ post.upload_date }}</li>
+                                    <li><i class='bx bx-user'></i>29K</li>
+                                    <li><i class='bx bx-message-alt-dots'></i>15K</li>
+                                </ul>
+                                <h3>
+                                    <a href="blog-details.html">{{ post.title }}</a>
+                                </h3>
+                                <p>{{ post.text|truncatechars:30 }}</p>
+                                <a href="blog-details.html" class="read-btn">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {% endfor %}
+
+
+
+
+
+
+
+
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pagination-area">
+                            {% if page_obj.has_previous %}
+                                <a href="{% url 'backend:posts'%}?page={{ page_obj.previous_page_number }}"
+                                   class="prev page-numbers">
+                                <i class='bx bx-chevrons-left'></i>
+                            </a>
+                            {% endif %}
+
+                            {% for page_number in paginator.page_range %}
+                                <a
+                                        href="{% url 'backend:posts'%}?page={{ page_number }}"
+                                        class="page-numbers {% if page_number == page_obj.number %}current{% endif %}"
+                                >
+                                    {{ page_number }}
+                                </a>
+
+                            {% endfor %}
+
+                             {% if page_obj.has_next %}
+                                <a href="{% url 'backend:posts'%}?page={{ page_obj.next_page_number }}"
+                                   class="next page-numbers">
+                                <i class='bx bx-chevrons-right'></i>
+                            </a>
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Blog Area End -->
+
+
+{% endblock %}

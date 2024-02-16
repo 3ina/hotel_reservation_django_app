@@ -71,3 +71,9 @@ def weeding_hall(request):
         "objects": objects,
     }
     return render(request, 'backend/gallery.html', context)
+
+
+class ListBlogPost(ListView):
+    model = models.Post
+    paginate_by = 3
+    template_name = "backend/blog.html"
