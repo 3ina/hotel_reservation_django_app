@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from backend import models
 from django.views.generic import ListView
-def index(request):
 
-    return render(request,'backend/index.html',{})
+
+def index(request):
+    return render(request, 'backend/index.html', {})
 
 
 def about(request):
     return render(request, 'backend/about.html', {})
 
+
 def term_conditions(request):
-    return render(request,'backend/term-conditions.html',{})
+    return render(request, 'backend/term-conditions.html', {})
+
 
 def privacy_policy(request):
-    return render(request,'backend/privacy-policy.html',{})
+    return render(request, 'backend/privacy-policy.html', {})
 
 
 def restaurant(requests):
@@ -22,15 +25,14 @@ def restaurant(requests):
     dinner = models.RestaurantItem.objects.filter(category='Dinner')
     drink = models.RestaurantItem.objects.filter(category='Drink')
 
-
     context = {
-        "breakfast" : breakfast,
+        "breakfast": breakfast,
         "lunch": lunch,
         "dinner": dinner,
-        "drink" : drink,
+        "drink": drink,
 
     }
-    return render(requests,'backend/restaurant.html',context)
+    return render(requests, 'backend/restaurant.html', context)
 
 
 class TeamMemberView(ListView):
@@ -42,21 +44,29 @@ class TeamMemberView(ListView):
 def hotel_room_gallery(request):
     objects = models.GalleryImage.objects.filter(category="Hotel Room")
     context = {
-        "objects":objects,
+        "objects": objects,
     }
-    return render(request,'backend/gallery.html',context)
+    return render(request, 'backend/gallery.html', context)
 
 
 def conference_gallery(request):
     objects = models.GalleryImage.objects.filter(category="Conference")
     context = {
-        "objects":objects,
+        "objects": objects,
     }
-    return render(request,'backend/gallery.html',context)
+    return render(request, 'backend/gallery.html', context)
 
 
 def resort_reserve(request):
     objects = models.GalleryImage.objects.filter(category="Resort Reserve")
+    context = {
+        "objects": objects,
+    }
+    return render(request, 'backend/gallery.html', context)
+
+
+def weeding_hall(request):
+    objects = models.GalleryImage.objects.filter(category="Weeding Hall")
     context = {
         "objects": objects,
     }
