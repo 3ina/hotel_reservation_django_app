@@ -7,6 +7,8 @@ admin.site.register(models.TagPost)
 admin.site.register(models.RestaurantItem)
 admin.site.register(models.TeamMember)
 admin.site.register(models.GalleryImage)
+admin.site.register(models.Comment)
+
 
 
 
