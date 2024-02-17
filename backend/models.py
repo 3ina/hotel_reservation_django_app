@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 
 class Post(models.Model):
@@ -11,6 +12,9 @@ class Post(models.Model):
     upload_date = models.DateTimeField(auto_now_add=True)
     text = models.TextField()
 
+    def get_absolute_url(self):
+        return reverse('backend:post-detail', args=[self.id])
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=60)
@@ -21,6 +25,12 @@ class TagPost(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), related_name="comments"
+                               , on_delete=models.CASCADE)
+    text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
 class RestaurantItem(models.Model):
     categories = (
         ("Breakfast", "Breakfast"),
