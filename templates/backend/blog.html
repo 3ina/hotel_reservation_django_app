@@ -18,7 +18,7 @@
 
                         <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
-                            <a href="blog-details.html">
+                            <a href="{{ post.get_absolute_url }}">
                                 <img src="{{ post.image1.url }}" alt="Images">
                             </a>
                             <div class="content">
@@ -28,10 +28,10 @@
                                     <li><i class='bx bx-message-alt-dots'></i>15K</li>
                                 </ul>
                                 <h3>
-                                    <a href="blog-details.html">{{ post.title }}</a>
+                                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                                 </h3>
                                 <p>{{ post.text|truncatechars:30 }}</p>
-                                <a href="blog-details.html" class="read-btn">
+                                <a href="{{ post.get_absolute_url }}" class="read-btn">
                                     Read More
                                 </a>
                             </div>
