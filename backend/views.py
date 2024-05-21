@@ -5,10 +5,16 @@ from django.views.generic import ListView
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-
+from django.shortcuts import redirect
 
 def index(request):
-    return render(request, 'backend/index.html', {})
+    recent_posts = models.Post.objects.order_by("upload_date").all()[0:2]
+
+    context = {
+
+        "recent_posts": recent_posts,
+    }
+    return render(request, 'backend/index.html', context)
 
 
 def about(request):
@@ -87,11 +93,13 @@ def detail_blog_post(request, pk):
     post = get_object_or_404(models.Post, id=pk)
     tags = models.TagPost.objects.filter(post=post)
     comments = models.Comment.objects.filter(post=post)
+    recent_posts = models.Post.objects.order_by("upload_date").all()[0:3]
 
     context = {
         "post": post,
         "tags": tags,
         "comments": comments,
+        "recent_posts": recent_posts,
     }
     return render(request, "backend/blog-detail.html", context)
 
@@ -104,9 +112,11 @@ def create_comment(request,pk):
     comment_is_exists = models.Comment.objects.filter(post=post,author=user)
     if comment_is_exists.exists():
         messages.error(request, "you can write only one comment")
-        return detail_blog_post(request,pk)
+        return redirect("backend:post-detail", pk=pk)
+
     text = request.POST['message']
     comment = models.Comment.objects.create(post=post,author=user,text=text)
     comment.save()
     messages.success(request, "success")
-    return detail_blog_post(request, pk)
+
+    return redirect("backend:post-detail",pk=pk)
